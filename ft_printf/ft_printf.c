@@ -32,27 +32,27 @@ static int ft_putnbr_base(long n, char *base, int base_len)
     return (len);
 }
 
-int ft_printf(const char *fmt, ...)
+int ft_printf(const char *str, ...)
 {
     va_list args;
     int len = 0;
 
-    va_start(args, fmt);
-    while (*fmt)
+    va_start(args, str);
+    while (*str)
     {
-        if (*fmt == '%' && (*(fmt + 1) == 's' || *(fmt + 1) == 'd' || *(fmt + 1) == 'x'))
+        if (*str == '%' && (*(str + 1) == 's' || *(str + 1) == 'd' || *(str + 1) == 'x'))
         {
-            fmt++;
-            if (*fmt == 's')
+            str++;
+            if (*str == 's')
                 len += ft_putstr(va_arg(args, char *));
-            else if (*fmt == 'd')
+            else if (*str == 'd')
                 len += ft_putnbr_base(va_arg(args, int), "0123456789", 10);
-            else if (*fmt == 'x')
+            else if (*str == 'x')
                 len += ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef", 16);
         }
         else
-            len += write(1, fmt, 1);
-        fmt++;
+            len += write(1, str, 1);
+        str++;
     }
     va_end(args);
     return (len);
