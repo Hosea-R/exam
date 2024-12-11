@@ -3,15 +3,15 @@
 char *get_next_line(int fd)
 {
     if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);
+        return(NULL);
     char *buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
     if (!buffer)
-        return (NULL);
+        return(NULL);
     char *line = malloc(sizeof(char) * 10000);
     if (!line)
     {
         free(buffer);
-        return (NULL);
+        return(NULL);
     }
     char *current = line;
     ssize_t bytes_read;

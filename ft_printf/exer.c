@@ -58,3 +58,13 @@ int ft_printf(const char *str, ...)
     va_end(args);
     return (len);
 }
+
+int main(void)
+{
+    ft_printf("String: %s\n", "Hello");
+    ft_printf("Decimal: %d\n", 42);
+    ft_printf("Hex: %x\n", 255);
+    ft_printf("Null string: %s\n", NULL);
+    ft_printf("Negative: %d\n", -123);
+    ft_printf("Tsisy ninin\n");
+}
