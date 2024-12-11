@@ -1,8 +1,9 @@
 #include "ft_printf.h"
 
 static int ft_putstr(char *s)
-{
+{   
     int len = 0;
+
     if (!s)
         s = "(null)";
     while (s[len])
@@ -57,4 +58,3 @@ int ft_printf(const char *str, ...)
     va_end(args);
     return (len);
 }
-
